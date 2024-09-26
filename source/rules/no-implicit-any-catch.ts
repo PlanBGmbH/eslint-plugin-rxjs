@@ -5,11 +5,12 @@
 
 import {
   AST_NODE_TYPES,
-  TSESLint as eslint,
   TSESTree as es,
+  TSESLint as eslint,
 } from "@typescript-eslint/experimental-utils";
 import {
   getTypeServices,
+  hasTypeAnnotation,
   isArrowFunctionExpression,
   isFunctionExpression,
   isIdentifier,
@@ -86,7 +87,7 @@ const rule = ruleCreator({
         if (!param) {
           return;
         }
-        if (param.typeAnnotation) {
+        if (hasTypeAnnotation(param)) {
           const { typeAnnotation } = param;
           const {
             typeAnnotation: { type },
