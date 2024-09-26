@@ -62,18 +62,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cartant/eslint-plugin-rxjs.git"
+    "url": "https://github.com/planbgmbh/eslint-plugin-rxjs.git"
   },
   "scripts": {
-    "dist": "yarn run lint && yarn run dist:build",
-    "dist:build": "yarn run dist:clean && tsc -p tsconfig-dist.json",
+    "dist": "npm run lint && npm run dist:build",
+    "dist:build": "npm run dist:clean && tsc -p tsconfig-dist.json",
     "dist:clean": "rimraf dist",
     "lint": "eslint source/**/*.ts tests/**/*.ts",
     "prepare": "husky install",
-    "prepublishOnly": "yarn run test && yarn run dist",
+    "prepublishOnly": "npm run test && npm run dist",
     "prettier": "prettier --write \"./{src,tests}/**/*.{js,json,ts,tsx}\"",
     "prettier:ci": "prettier --check \"./{src,tests}/**/*.{js,json,ts,tsx}\"",
-    "test": "yarn run test:rules && yarn run test:specs",
+    "test": "npm run test:rules && npm run test:specs",
     "test:debug": "mocha -r ts-node/register -t 5000 tests/rules/no-redundant-notify.ts",
     "test:rules": "mocha -r ts-node/register -t 5000 tests/rules/*.ts",
     "test:specs": "mocha -r ts-node/register tests/*-spec.ts"

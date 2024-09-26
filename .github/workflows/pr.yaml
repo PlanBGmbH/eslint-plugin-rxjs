@@ -1,0 +1,12 @@
+name: Pull Requests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-build:
+    name: Build
+    uses: ./.github/workflows/validate.yaml
+    secrets: inherit

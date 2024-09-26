@@ -1,0 +1,25 @@
+name: Validate
+
+on: 
+  workflow_call:
+
+jobs:
+  run-build:
+    name: Check Formatting and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout Repository
+      - uses: actions/setup-node@v4
+        name: Setup Node.js (v20)
+        with:
+          node-version: 20
+      - name: Install Dependencies
+        run: |
+          npm install
+      - name: Check Formatting
+        run: |
+          npm run prettier:ci
+      - name: Run Tests
+        run: |
+          npm run test
